@@ -5,6 +5,7 @@ import API from "../utils/API";
 import Results from "../components/Results";
 import Wrapper from "../components/Wrapper"
 import { List } from "../components/List"
+import VideoBg from "../components/VideoBg/index"
 // import GameTable from "../components/Table";
 
 function Landing() {
@@ -49,6 +50,7 @@ function Landing() {
   return (
     // <h1>Matt's sexy landing page</h1>
     <div>
+      <VideoBg />
 
     <SearchBar inputChange={handleInputChange} handler={handleSearchSubmit}/>
       <Wrapper>
