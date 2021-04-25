@@ -8,7 +8,7 @@ import { BrowserRouter as Router, Route,  Switch } from "react-router-dom";
 
 import WishlistPage from "./pages/wishlist";
 import LoginPage from "./pages/loginPage";
-import VideoBg from "./components/VideoBg/index"
+// import VideoBg from "./components/VideoBg/index"
 
 
 
@@ -21,7 +21,7 @@ function App() {
 
 
       <div className="App">
-      <VideoBg />
+      {/* <VideoBg /> */}
         <Switch>
 
           <Route exact path="/">
