@@ -53,7 +53,8 @@ const userSeed = [
 }
 ]
 db.User
-  .find({})
+  .remove({})
+  // .find({})
   .then(() => db.User.create(userSeed))
   .then(data => {
 

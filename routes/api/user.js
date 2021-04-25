@@ -37,9 +37,10 @@ module.exports = app => {
                 console.log("User exists")
                 res.json({
                     success: true,
-                    message: "User is successfully logged in",
+                    message: "User has successfully authenticated",
                     user: {
                         id: req.user.id,
+                        // onboard: req.user.onboard
                     },
                     cookies: req.cookies
                 });
@@ -61,27 +62,9 @@ module.exports = app => {
         //     .then(data => res.json(data))
     })
 
-    //TEST SAVE GAME WITHOUT USER
-    // app.put("/api/users/", (req, res) => {
-    //     // const id = req.params.id;
-    //     const game = {
-    //         title: req.params.title,
-    //         platform: req.params.platform,
-    //         store: req.params.store,
-    //         image: req.params.image,
-    //       }
-    //     db.User.create(
-    //         // { "_id" : id },
-    //         {game
-    //         })
-    //         .then(updated => res.json(updated))
-    // })
-
-
     //SAVE GAME TO USER PROFILE
     app.put("/api/users/:id", (req, res) => {
-        const id = "6085bcf248349539ac364579"
-        // req.params.id;
+        const id = req.params.id;
         const game = {
             title: req.params.title,
             platform: req.params.platform,
