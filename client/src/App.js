@@ -36,6 +36,7 @@ function App() {
 
           <Route exact path="/Wishlist">
             <WishlistPage />
+            
           </Route>
           <Route>
             <NoMatch />

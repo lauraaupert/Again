@@ -5,8 +5,7 @@ import API from "../utils/API";
 import Results from "../components/Results";
 import Wrapper from "../components/Wrapper"
 import { List } from "../components/List"
-import Navbar from "../components/navbar/index"
-import VideoBg from "../components/VideoBg/index"
+import Navbar from "../components/navbar/wishIndex"
 // import GameTable from "../components/Table";
 
 function Landing() {
@@ -15,6 +14,7 @@ function Landing() {
   const [games, setGames] = useState({ results: [] });
     const [userSearch, setUserSearch] = useState("");
 
+    useEffect(() => searchGames(), []);
 
     function handleInputChange(event) {
         const { value } = event.target;
@@ -22,9 +22,9 @@ function Landing() {
         setUserSearch(value);
     };
 
-    function searchGames() {
-      console.log()
-        API.searchTerms()
+    function searchGames(query) {
+      console.log(query)
+        API.searchTerms(query)
         
             .then(res => {
               console.log(res.data.results)
@@ -42,8 +42,6 @@ function Landing() {
         console.log(userSearch)
         searchGames(userSearch);
     };
-    // useEffect(() => searchGames("Among us"), []);
-
 // const about = "about us"
 //   API.searchTerms(about)
 //   .then(function(result){
@@ -53,7 +51,6 @@ function Landing() {
     // <h1>Matt's sexy landing page</h1>
     <div>
     <Navbar/>
-      <VideoBg />
     <SearchBar inputChange={handleInputChange} handler={handleSearchSubmit}/>
       <Wrapper>
       {games.results.length ?
@@ -64,7 +61,7 @@ function Landing() {
     title={result.name}
     platform={result.platforms[0].platform.name}
     store={result.stores[0].store.name}
-    image={result.background_image}
+    image={result.image}
 />
     ))}
     </List> :
@@ -76,29 +73,3 @@ function Landing() {
 }
 
 export default Landing;
-
-// 'use strict';
-
-// import React, {Component} from 'react';
-
-// class Example extends Component {
-//     constructor (props) {
-//         super(props);
-
-//         this.state = {
-//             videoURL: 'http://www.sample-videos.com/video/mp4/720/big_buck_bunny_720p_1mb.mp4'
-//         }
-//     }
-
-//     render () {
-//         return (
-//             <video id="background-video" loop autoPlay>
-//                 <source src={this.state.videoURL} type="video/mp4" />
-//                 <source src={this.state.videoURL} type="video/ogg" />
-//                 Your browser does not support the video tag.
-//             </video>
-//         )
-//     }
-// };
-
-// export default Example;
