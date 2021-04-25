@@ -6,7 +6,7 @@ import NoMatch from "./pages/noMatch";
 import Landing from "./pages/landing"
 import { BrowserRouter as Router, Route,  Switch } from "react-router-dom";
 
-// import WishlistPage from "./pages/wishlist";
+import WishlistPage from "./pages/wishlist";
 import LoginPage from "./pages/loginPage";
 // import VideoBg from "./components/VideoBg/index"
 
@@ -34,9 +34,9 @@ function App() {
 
           </Route>
 
-          {/* <Route exact path="/Wishlist">
+          <Route exact path="/Wishlist">
             <WishlistPage />
-          </Route> */}
+          </Route>
           <Route>
             <NoMatch />
           </Route>
