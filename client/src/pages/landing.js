@@ -62,7 +62,7 @@ function Landing() {
     title={result.name}
     platform={result.platforms[0].platform.name}
     store={result.stores[0].store.name}
-    image={result.image}
+    image={result.background_image}
 />
     ))}
     </List> :
