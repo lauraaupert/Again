@@ -1,20 +1,52 @@
-import React, { Component } from "react";
-import logo from "./logo.svg";
-import "./App.css";
+import React from "react";
 
+// import "./styles/App.css";
+
+import NoMatch from "./pages/noMatch";
+import Landing from "./pages/landing"
+import { BrowserRouter as Router, Route,  Switch } from "react-router-dom";
+
+// import WishlistPage from "./pages/wishlist";
+// import LoginPage from "./pages/loginPage";
+import VideoBg from "./components/VideoBg/index"
+
+
+
+// axios.defaults.withCredentials = true;
 function App() {
+  
   return (
-    <div className="App">
-      <div className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <h2>Welcome to React</h2>
+    
+    <Router>
+
+
+      <div className="App">
+      <VideoBg />
+        <Switch>
+
+          <Route exact path="/">
+            <Landing />
+
+
+          </Route>
+          {/* <Route exact path="/login">
+            <LoginPage />
+
+          </Route> */}
+
+          {/* <Route exact path="/Wishlist">
+            <WishlistPage />
+          </Route> */}
+          <Route>
+            <NoMatch />
+          </Route>
+
+        </Switch>
+
       </div>
-      <p className="App-intro">
-        To get started, edit <code>src/App.js</code> and save to reload.
-      </p>
-    </div>
+
+    </Router>
   );
 }
-
 
 export default App;
