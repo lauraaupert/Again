@@ -31,8 +31,8 @@ export default {
     return axios.delete("/api/users/" + id);
   },
   // Saves a game to the database
-  saveGame: function (gameData) {
-    return axios.post("/api/users", gameData);
+  saveGame: function (id, gameData) {
+    return axios.post("/api/users/" + id, gameData);
   },
 
   // Saves a user to the database
