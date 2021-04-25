@@ -15,6 +15,7 @@ function Landing() {
   const [games, setGames] = useState({ results: [] });
     const [userSearch, setUserSearch] = useState("");
 
+    useEffect(() => searchGames(), []);
 
     function handleInputChange(event) {
         const { value } = event.target;
@@ -22,9 +23,9 @@ function Landing() {
         setUserSearch(value);
     };
 
-    function searchGames() {
-      console.log()
-        API.searchTerms()
+    function searchGames(query) {
+      console.log(query)
+        API.searchTerms(query)
         
             .then(res => {
               console.log(res.data.results)
@@ -42,8 +43,6 @@ function Landing() {
         console.log(userSearch)
         searchGames(userSearch);
     };
-    // useEffect(() => searchGames("Among us"), []);
-
 // const about = "about us"
 //   API.searchTerms(about)
 //   .then(function(result){
