@@ -1,4 +1,4 @@
-import React, { Fragment } from "react";
+import React from "react";
 import Box from "../Box"
 
 export default function SearchBar(props) {
