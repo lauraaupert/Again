@@ -2,7 +2,6 @@ import { Avatar, Button, Grid, Paper, TextField, Typography } from "@material-ui
 import React, { useState} from "react";
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import FormControl from '@material-ui/core/FormControl';
-import Checkbox from '@material-ui/core/Checkbox';
 import axios from "axios";
 
 
@@ -37,7 +36,7 @@ async function signup(e) {
           </Avatar>
           <h2 style={headerStyle}>Sign up</h2>
           <Typography variant="caption" gutterbottom>
-            Please fill this form to create an account
+            Please fill out this form to create an account
         </Typography>
         </Grid>
         <form onSubmit={signup}>
@@ -47,15 +46,6 @@ async function signup(e) {
           </FormControl>
           <TextField fullWidth label="Password" placeholder="Create Your Password" onChange={(e) => setPassword(e.target.value)} value={password}/>
           <TextField fullWidth label="Confirm Password" placeholder="Confirm Your Password" />
-          <FormControlLabel
-            control={
-              <Checkbox
-                name="checkedA"
-                color="#00801c"
-              />
-            }
-            label="I accept terms and conditions"
-          />
           <Button href="/Login" type="submit" style={btnStyle} varient="contained" >
             Sign up
           </Button>
