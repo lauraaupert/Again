@@ -17,7 +17,7 @@ const useStyles = makeStyles((theme) => ({
     },
   }));
   
-  export default function Navbar() {
+  export default function ButtonAppBar() {
     const classes = useStyles();
     const NavStyle = {
     background: "#11e068",
