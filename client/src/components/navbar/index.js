@@ -16,7 +16,7 @@ const useStyles = makeStyles((theme) => ({
     },
   }));
   
-  export default function ButtonAppBar() {
+  export default function Navbar() {
     const classes = useStyles();
     const btnStyle = { textAlign: 'center', background:"#11e068", fontVariantCaps: "all-petite-caps"};
     const NavStyle = {
