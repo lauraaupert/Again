@@ -1,7 +1,7 @@
 // // Requiring our models and passport as we've configured it
 var db = require("../../models");
 // var passport = require("../../config/passport");
-const URL = process.env.APP_URL || "http://localhost:3000"
+const URL = process.env.APP_URL || "http://localhost:3000/"
 
 module.exports = app => {
 //     // Using the passport.authenticate middleware with our local strategy.
