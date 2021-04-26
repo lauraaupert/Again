@@ -4,7 +4,6 @@ const PORT = process.env.PORT || 3001;
 const app = express();
 const mongoose = require("mongoose");
 const session = require("express-session")
-const db = require("./models")
 const passport = require("./config/passport");
 const routes = require("./routes")
 

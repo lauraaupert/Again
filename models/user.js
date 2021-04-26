@@ -55,11 +55,12 @@ UserSchema.methods.validPassword = function (password) {
   
   
   
-  const User = mongoose.model("User", UserSchema);
+  // const User = mongoose.model("User", UserSchema);
 
 // });
 
 // User.plugin(passportLocalMongoose);
 
-module.exports = User;
+module.exports = mongoose.model("User", UserSchema)
+// User;
 //DO WE NEED BCRYPT HERE
