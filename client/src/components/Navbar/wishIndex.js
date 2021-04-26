@@ -33,9 +33,10 @@ const useStyles = makeStyles((theme) => ({
           <Toolbar style={NavStyle}> 
             <h1 style={{textAlign: 'center', fontFamily: "Kaushan Script", margin:"auto"}}> GameDex </h1>
             <Button type="submit"
+              onClick={logout}
               style={btnStyle}
               variant="contained"
-              href="/">Logout</Button>
+              >Logout</Button>
           </Toolbar>
         </AppBar>
       </div>
