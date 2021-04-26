@@ -4,7 +4,7 @@ const Schema = mongoose.Schema;
 // const passportLocalMongoose = require('passport-local-mongoose');
 
 const bcrypt = require("bcryptjs");
-const UserSchema = new mongoose.Schema({
+const UserSchema = new Schema({
   username: {
     type: String,
     required: [true, "Please provide a username"]
@@ -61,5 +61,5 @@ UserSchema.methods.validPassword = function (password) {
 
 // User.plugin(passportLocalMongoose);
 
-module.exports = mongoose.model("User", User);
+module.exports = User;
 //DO WE NEED BCRYPT HERE

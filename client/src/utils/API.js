@@ -15,15 +15,15 @@ export default {
   },
   // Gets the game with the given id
   getGame: function (id) {
-    return axios.get("/api/games/" + id);
+    return axios.get("/api/users/" + id);
   },
   // Deletes the game with the given id
   deleteGame: function (id) {
-    return axios.delete("/api/games/" + id);
+    return axios.delete("/api/users/" + id);
   },
   // Saves a game to the database
   saveGame: function (gameData) {
-    return axios.post("/api/games", gameData);
+    return axios.post("/api/users", gameData);
   },
 
   // Saves a user to the database

@@ -22,6 +22,7 @@ const Signup = ({ setIsAuthenticatedUser}) => {
         setIsAuthenticatedUser(true)
       }
     })
+  }
   return (
     <Grid>
       <Paper className="image" style={paperStyle}>
@@ -60,6 +61,6 @@ const Signup = ({ setIsAuthenticatedUser}) => {
   )
 
 }
-}
+
 
 export default Signup;
