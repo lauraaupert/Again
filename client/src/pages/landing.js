@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import SearchBar from "../components/searchbar";
 import API from "../utils/API";
-// import Table from "../components/Table"
 import Results from "../components/Results";
 import Wrapper from "../components/Wrapper"
 import { List } from "../components/List"
