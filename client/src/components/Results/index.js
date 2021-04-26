@@ -19,9 +19,9 @@ function Results(props) {
     }
 
     return (
-        <tr scope="col">
+        <tr>
         {/* <div className="row" style={{marginTop: "5px"}} > */}
-            <td scope="row">
+            <td>
                 <img 
                 style={{width: "100px"}}
                 alt={`${props.photo}`} 
