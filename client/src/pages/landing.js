@@ -4,8 +4,10 @@ import API from "../utils/API";
 import Results from "../components/Results";
 import Wrapper from "../components/Wrapper"
 import VideoBg from "../components/VideoBg/index"
+
 import { List } from "../components/List"
 import Navbar from "../components/Navbar.js";
+
 
 
 function Landing() {
@@ -14,6 +16,7 @@ function Landing() {
   const [games, setGames] = useState({ results: [] });
     const [userSearch, setUserSearch] = useState("");
 
+    useEffect(() => searchGames(), []);
 
     function handleInputChange(event) {
         const { value } = event.target;
@@ -21,9 +24,9 @@ function Landing() {
         setUserSearch(value);
     };
 
-    function searchGames() {
-      console.log()
-        API.searchTerms()
+    function searchGames(query) {
+      console.log(query)
+        API.searchTerms(query)
         
             .then(res => {
               console.log(res.data.results)
@@ -41,8 +44,6 @@ function Landing() {
         console.log(userSearch)
         searchGames(userSearch);
     };
-    // useEffect(() => searchGames("Among us"), []);
-
 // const about = "about us"
 //   API.searchTerms(about)
 //   .then(function(result){
@@ -53,6 +54,7 @@ function Landing() {
     <div>
       <Navbar />
       <VideoBg />
+
     <SearchBar inputChange={handleInputChange} handler={handleSearchSubmit}/>
       <Wrapper>
       {games.results.length ?
