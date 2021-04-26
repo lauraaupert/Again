@@ -21,7 +21,7 @@ function Results(props) {
         event.preventDefault();
         if (props.store === "Steam") {
             window.location.href="https://store.steampowered.com/"
-        } else if (props.store === "Playstation Store"){
+        } else if (props.store === "PlayStation Store"){
             window.location.href="https://store.playstation.com/"
         } else if (props.store === "Xbox Store"){
             window.location.href="https://www.xbox.com/en-US/games/all-games"
@@ -61,7 +61,7 @@ function Results(props) {
 
 
             <td><button className="btn btn-info m-1" onClick={redirect} type="button"
-            >Store</button></td>
+            >{props.store}</button></td>
 
 
             {/* <td>{props.email}</td>
