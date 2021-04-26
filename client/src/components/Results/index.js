@@ -61,7 +61,7 @@ function Results(props) {
 
 
             <td><button className="btn btn-info m-1" onClick={redirect} type="button"
-            >Store</button></td>
+            >{props.store}</button></td>
 
 
             {/* <td>{props.email}</td>
