@@ -16,7 +16,7 @@ function Landing() {
   const [games, setGames] = useState({ results: [] });
   const [userSearch, setUserSearch] = useState("");
 
-    useEffect(() => searchGames(), []);
+    // useEffect(() => searchGames(), []);
 
     function handleInputChange(event) {
         const { value } = event.target;
