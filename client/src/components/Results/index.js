@@ -20,9 +20,9 @@ function Results(props) {
     function redirect(event) {
         event.preventDefault();
         if (props.store === "Steam") {
-            window.location.href="https://store.steampowered.com/"
+            window.location.href="https://www.store.steampowered.com/"
         } else if (props.store === "PlayStation Store"){
-            window.location.href="https://store.playstation.com/"
+            window.location.href="https://store.playstation.com/en-us/latest"
         } else if (props.store === "Xbox Store"){
             window.location.href="https://www.xbox.com/en-US/games/all-games"
         } else if (props.store === "App Store"){
