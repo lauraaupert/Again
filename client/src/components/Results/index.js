@@ -1,27 +1,22 @@
 import React from "react";
 // import Container from "./Container";
-// import API from "../../utils/API";
-import axios from "axios";
+import API from "../../utils/API";
 
 
 function Results(props) {
-        async function saveGame(e) {
-            e.preventDefault();
-            try {
-                const id = "6085bcf248349539ac364579"
-                const data = {
-                    title: props.title,
-                    platform: props.platform,
-                    store: props.store,
-                    image: props.image,
-                    // link: props.link
-                }
-                     await axios.post("http://localhost:3000/api/users/" + id, data).then((res) => console.log(res))
-            }
-            catch(err){
-              console.error(err);
-            }
-          }
+    function saveGame(event) {
+        event.preventDefault();
+        alert("Saved " + props.title + "!")
+        const data = {
+            title: props.title,
+            platform: props.platform,
+            store: props.store,
+            image: props.image,
+            // link: props.link
+        }
+        API.saveGame(data)
+            .catch(err => console.log(err));
+    }
 
     return (
         <tr scope="col">

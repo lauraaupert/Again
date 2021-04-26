@@ -23,16 +23,20 @@ export default {
     )
 },
   // Gets all saved games
-  getGames: function (id) {
-    return axios.get("/api/users/" +id);
+  getGames: function () {
+    return axios.get("/api/games");
+  },
+  // Gets the game with the given id
+  getGame: function (id) {
+    return axios.get("/api/games/" + id);
   },
   // Deletes the game with the given id
   deleteGame: function (id) {
-    return axios.delete("/api/users/" + id);
+    return axios.delete("/api/games/" + id);
   },
   // Saves a game to the database
-  saveGame: function (id, gameData) {
-    return axios.post("/api/users/" + id, gameData);
+  saveGame: function (gameData) {
+    return axios.post("/api/games", gameData);
   },
 
   // Saves a user to the database
