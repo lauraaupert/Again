@@ -5,6 +5,8 @@ const app = express();
 const mongoose = require("mongoose");
 const session = require("express-session")
 const db = require("./models")
+const passport = require("./config/passport");
+const routes = require("./routes")
 
 // Define middleware here
 app.use(express.urlencoded({ extended: true }));
