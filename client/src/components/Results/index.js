@@ -17,6 +17,30 @@ function Results(props) {
         API.saveGame(data)
             .catch(err => console.log(err));
     }
+    function redirect(event) {
+        event.preventDefault();
+        if (props.store === "Steam") {
+            window.location.href="https://store.steampowered.com/"
+        } else if (props.store === "Playstation Store"){
+            window.location.href="https://store.playstation.com/"
+        } else if (props.store === "Xbox Store"){
+            window.location.href="https://www.xbox.com/en-US/games/all-games"
+        } else if (props.store === "App Store"){
+            window.location.href="https://www.apple.com/app-store/"
+        } else if (props.store === "GOG"){
+            window.location.href="https://www.gog.com/"
+        } else if (props.store === "Nintendo Store"){
+            window.location.href="https://www.nintendo.com/"
+        } else if (props.store === "Xbox 360 Store"){
+            window.location.href="https://www.marketplace.xbox.com/"
+        } else if (props.store === "Google Play"){
+            window.location.href="https://www.play.google.com/"
+        } else if (props.store === "itch.io"){
+            window.location.href="https://www.itch.io/"
+        } else if (props.store === "Epic Games"){
+            window.location.href="https://www.epicgames.com/"
+        }
+    }
 
     return (
         <tr>
@@ -34,7 +58,12 @@ function Results(props) {
             <td>{props.platform}</td>
             <td>{props.store}</td>
             <td><button className="btn btn-info m-1" onClick={saveGame} type="button">Save</button></td>
-            <td><button className="btn btn-info m-1" onClick={} type="button">Store Page</button></td>
+
+
+            <td><button className="btn btn-info m-1" onClick={redirect} type="button"
+            >Store</button></td>
+
+
             {/* <td>{props.email}</td>
             <td>{props.nationality}</td>
             <td>{props.age}</td> */}
