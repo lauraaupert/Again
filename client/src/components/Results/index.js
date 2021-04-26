@@ -59,8 +59,10 @@ function Results(props) {
             <td>{props.store}</td>
             <td><button className="btn btn-info m-1" onClick={saveGame} type="button">Save</button></td>
 
+
             <td><button className="btn btn-info m-1" onClick={redirect} type="button"
             >Store</button></td>
+
 
             {/* <td>{props.email}</td>
             <td>{props.nationality}</td>
