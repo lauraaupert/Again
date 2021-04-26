@@ -3,8 +3,7 @@ import SignInOutContainer from "../components/containers/index";
  import "../components/Header.css";
 
 
-function LoginPage() {
-
+ function LoginPage({setIsAuthenticatedUser}) {
     return (
         <div className="login">
           <h1 className="title__app">GameDex</h1>
@@ -12,8 +11,7 @@ function LoginPage() {
             
             </div>
             <div className="loginPage__image">
-            <SignInOutContainer />
-           </div>
+            <SignInOutContainer setIsAuthenticatedUser={setIsAuthenticatedUser} />           </div>
           </div>
         
     )

@@ -1,37 +1,28 @@
-import {
-  Grid,
-  Paper,
-  Avatar,
-  TextField,
-  Button,
-  Typography,
-  Link,
-} from "@material-ui/core";
 import React, { useState } from "react";
+import { Grid, Paper, Avatar, TextField, Button, Typography, Link } from "@material-ui/core";
 import FormControlLabel from "@material-ui/core/FormControlLabel";
 import Checkbox from "@material-ui/core/Checkbox";
-import axios from "axios";
+import passport from "../../utils/passport"
 import "../../components/Header.css";
- 
-const Login = ({handleChange,}) => {
-  const [name, setname] = useState("");
-  const [password, setPassword] = useState("");
-  const paperStyle={padding :20,height:"62vh",width:300, margin:"0 auto", borderRadius:"20px"}
-  const avatarStyle={backgroundColor:"black"}
-  const btnStyle={backgroundColor:"black"}
-  async function login(e) {
-    e.preventDefault();
-    try {
-     const loginData = {
-       name,
-       password,
-     };
-     await axios.post("http://localhost:3000/login", loginData).then((res) => console.log(res))
-    }catch(err){
-      console.error(err);
-    }
-  }
 
+ 
+const Login = ({ handleChange, setIsAuthenticatedUser }) => {
+  const [username, setUsername] = useState("")
+  const [password, setPassword] = useState("")
+  const paperStyle = { padding: 20, height: "62vh", width: 300, margin: "0 auto", borderRadius: "20px" }
+  const avatarStyle = { backgroundColor: "black" }
+  const btnStyle = { backgroundColor: "black" }
+
+  function login(e) {
+    e.preventDefault();
+    console.log("Username and password are", username, password)
+
+    passport.LogIn(username, password).then(res => {
+      if (res.status === 200) {
+        setIsAuthenticatedUser(true)
+      }
+    })
+  }
   return (
     <Grid>
       <Paper className="image" elevation={10} style={paperStyle}>
@@ -44,16 +35,16 @@ const Login = ({handleChange,}) => {
 
         <form onSubmit={login}>
           <TextField
-          label="Username" name="username" placeholder="Enter username" fullWidth required onChange={(e) => setname(e.target.value)} value={name}/>
-          <TextField label="Password" name="password" placeholder="Enter Password" type="password" fullWidth required onChange={(e) => setPassword(e.target.value)} value={password}/>
-          <FormControlLabel
+          label="Username" name="username" placeholder="Enter username" fullWidth required onChange={(e) => setUsername(e.target.value)} value={username} />
+          <TextField
+            label="Password" name="password" placeholder="Enter Password" type="password" fullWidth required onChange={(e) => setPassword(e.target.value)} value={password} />          <FormControlLabel
             name="remember"
             control={<Checkbox name="checkboxB" color="#00801c" />}
             label="Remember me"
           />
 
           <Button
-            href="/"
+            onClick={login}
             type="submit"
             style={btnStyle}
             variant="contained"

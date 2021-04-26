@@ -1,50 +1,68 @@
-import React from "react";
 
-// import "./styles/App.css";
-
+import React, { useEffect, useState } from "react";
 import NoMatch from "./pages/noMatch";
 import Landing from "./pages/landing"
-import { BrowserRouter as Router, Route,  Switch } from "react-router-dom";
-
-// import WishlistPage from "./pages/wishlist";
-import LoginPage from "./pages/loginPage";
-// import VideoBg from "./components/VideoBg/index"
-
+import { BrowserRouter as Router, Route, Switch, Redirect } from "react-router-dom";import LoginPage from "./pages/loginPage";
+import passport from "./utils/passport";
+import WishlistPage from "./pages/wishlist"
 
 
 // axios.defaults.withCredentials = true;
 function App() {
-  
+  const [isAuthenticatedUser, setIsAuthenticatedUser] = useState(false)
+  const [authenticatedUser, setAuthenticatedUser] = useState({})
+
+  useEffect(() => {
+    console.log("Helloo??")
+    passport.isAuthenticated().then(res => {
+      console.log(res.data)
+      if (res.data.success) {
+        setIsAuthenticatedUser(true)
+        setAuthenticatedUser(res.data)
+      }
+      else {
+        setIsAuthenticatedUser(false)
+        setAuthenticatedUser({})
+      }
+
+      console.log(authenticatedUser)
+    })
+  }, [])
   return (
     
     <Router>
 
 
-      <div className="App">
       {/* <VideoBg /> */}
         <Switch>
-
-          <Route exact path="/">
-            <Landing />
+        {isAuthenticatedUser ?
 
 
-          </Route>
-          <Route exact path="/login">
-            <LoginPage />
+(<>
+  <Route exact path={["/", "/login"]}>
+    <Redirect to="/Wishlist" />
+  </Route>
 
-          </Route>
+  <Route exact path={["/Wishlist"]}>
+    <WishlistPage />
+  </Route>
+</>
+) :
 
-          {/* <Route exact path="/Wishlist">
-            <WishlistPage />
-          </Route> */}
-          <Route>
-            <NoMatch />
-          </Route>
+(<>
+   <Route exact path="/">
+    <Landing />
+  </Route>
+  <Route exact path="/login">
+      <LoginPage setIsAuthenticatedUser={setIsAuthenticatedUser} />
+  </Route>
+</>)
+}
+<Route>
+<NoMatch />
+</Route>
 
-        </Switch>
-
-      </div>
-
+</Switch>
     </Router>
   );
 }
