@@ -4,9 +4,9 @@ import API from "../utils/API";
 import Results from "../components/Results";
 import Wrapper from "../components/Wrapper"
 import VideoBg from "../components/VideoBg/index"
-
 import { List } from "../components/List"
 import Navbar from "../components/Navbar/index.js";
+import SearchCard from "../components/searchCard";
 
 
 
@@ -44,30 +44,29 @@ function Landing() {
         console.log(userSearch)
         searchGames(userSearch);
     };
-  return (
-    <div>
-      <Navbar />
-      <VideoBg />
-
-    <SearchBar inputChange={handleInputChange} handler={handleSearchSubmit}/>
-      <Wrapper>
-      {games.results.length ?
-        <List>
-      {games.results.map(result => (
-    <Results
-    key={result.id}
-    title={result.name}
-    platform={result.platforms[0].platform.name}
-    store={result.stores[0].store.name}
-    image={result.background_image}
-/>
-    ))}
-    </List> :
-    (<h1>Got nothing buddy</h1>)
-      }
-    </Wrapper>
-    </div>
-  );
-}
+    return (
+      <div>
+        <Navbar />
+        {/* <VideoBg /> */}
+        <SearchCard inputChange={handleInputChange} handler={handleSearchSubmit}/>
+        <Wrapper>
+        {games.results.length ?
+          <List>
+        {games.results.map(result => (
+      <Results
+      key={result.id}
+      title={result.name}
+      platform={result.platforms[0].platform.name}
+      store={result.stores[0].store.name}
+      image={result.background_image}
+  />
+      ))}
+      </List> :
+      (<h1>Got nothing buddy</h1>)
+        }
+      </Wrapper>
+      </div>
+    );
+  }
 
 export default Landing;
