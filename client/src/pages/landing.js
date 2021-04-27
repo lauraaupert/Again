@@ -5,7 +5,6 @@ import Results from "../components/Results";
 import Wrapper from "../components/Wrapper"
 import VideoBg from "../components/VideoBg/index"
 
-import SearchCard from "../components/searchCard";
 import { ListA } from "../components/List"
 
 import Navbar from "../components/Navbar/index.js";
