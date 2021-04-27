@@ -66,7 +66,7 @@ function WishlistPage() {
       <Wrapper>
         <h1>Hello!</h1>
       {games.results ?
-        <ListA>
+        <List>
       {games.results.map(result => (
     <Results
     key={result.id}
