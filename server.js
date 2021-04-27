@@ -4,7 +4,8 @@ const PORT = process.env.PORT || 3001;
 const app = express();
 const mongoose = require("mongoose");
 const session = require("express-session")
-const passport = require("./config/passport");
+const passport = require("passport");
+const User = require("./models/User")
 const routes = require("./routes")
 
 // Define middleware here
