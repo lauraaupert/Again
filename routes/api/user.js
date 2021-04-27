@@ -1,4 +1,4 @@
-var User = require("../../models/User");
+var User = require("../../models/user.js");
 const router = require("express").Router();
 
 // Get the games from this user
