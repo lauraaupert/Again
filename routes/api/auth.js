@@ -1,4 +1,4 @@
-var User = require("../../models/user");
+var User = require("../../models/user.js");
 var passport = require("../../config/passport");
 const router = require("express").Router();
 
