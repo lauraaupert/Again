@@ -1,8 +1,8 @@
 import { Avatar, Button, Grid, Paper, TextField, Typography } from "@material-ui/core";
 import React, { useState } from "react";
-import FormControlLabel from '@material-ui/core/FormControlLabel';
+// import FormControlLabel from '@material-ui/core/FormControlLabel';
 import FormControl from '@material-ui/core/FormControl';
-import Checkbox from '@material-ui/core/Checkbox';
+// import Checkbox from '@material-ui/core/Checkbox';
 import passport from "../../utils/passport";
 
 const Signup = ({ setIsAuthenticatedUser}) => {
@@ -43,7 +43,7 @@ const Signup = ({ setIsAuthenticatedUser}) => {
           </FormControl>
           <TextField
             onChange={e => setPassword(e.target.value)} value={password} fullWidth label="Password" placeholder="Create Your Password" />          <TextField fullWidth label="Confirm Password" placeholder="Confirm Your Password" />
-          <FormControlLabel
+          {/* <FormControlLabel
             control={
               <Checkbox
                 name="checkedA"
@@ -51,7 +51,7 @@ const Signup = ({ setIsAuthenticatedUser}) => {
               />
             }
             label="I accept terms and conditions"
-          />
+          /> */}
           <Button onClick={signup} type="submit" style={btnStyle} varient="contained" >
             Sign up
           </Button>

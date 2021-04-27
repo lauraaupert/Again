@@ -22,8 +22,12 @@ export default {
   //   return axios.delete("/api/users/" + id, gameData);
   // },
   // Saves a game to the database
+
   saveGame: function (id, gameData) {
-    return axios.put("/api/users/" + id, gameData);
+
+    return axios.put("/api/users" + id, gameData);
+
+
   },
 
   // Saves a user to the database
