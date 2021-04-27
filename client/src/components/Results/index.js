@@ -1,6 +1,7 @@
 import React from "react";
 // import Container from "./Container";
-import API from "../../utils/API";
+import passport from "../../utils/passport";
+import axios from "axios"
 
 
 function Results(props) {
@@ -14,9 +15,22 @@ function Results(props) {
             image: props.image,
             // link: props.link
         }
-        API.saveGame(data)
+        passport.saveGame(data)
             .catch(err => console.log(err));
     }
+
+    // function saveGame(event) {
+    //     event.preventDefault();
+    //     alert("Saved " + props.title + "!")
+    //     const game = {
+    //         title: props.title,
+    //         platform: props.platform,
+    //         store: props.store,
+    //         image: props.image,
+    //         // link: props.link
+    //     }
+    //     axios.post("http://localhost:3000/api/user_data", {game})
+    // }
     function redirect(event) {
         event.preventDefault();
         if (props.store === "Steam") {

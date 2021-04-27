@@ -81,4 +81,6 @@ export default function SearchCard(props) {
       </div>
 
   );
+
 }
+

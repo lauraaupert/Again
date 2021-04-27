@@ -15,6 +15,15 @@ export default {
             password: password
         })
     },
+    getUser: () => {
+        return axios.get('/api/user')
+    },
+    saveGame: (username, game) => {
+        return axios.put('/api/user_data', {
+            username: username,
+            games: game
+        })
+    },
     isAuthenticated: () => {
         return axios.get('/api/user_data')
     },
