@@ -4,7 +4,7 @@ import API from "../utils/API";
 import Results from "../components/Results";
 import Wrapper from "../components/Wrapper"
 import VideoBg from "../components/VideoBg/index"
-
+import SearchCard from "../components/searchCard";
 import { List } from "../components/List"
 import Navbar from "../components/Navbar/index.js";
 import axios from "axios"
@@ -25,32 +25,20 @@ function Landing() {
         setUserSearch(value);
     };
 
-    // function searchGames(userSearch) {
-    //   console.log(userSearch)
-    //     API.searchTerms(userSearch)
-        
-    //         .then(res => {
-    //           console.log(res.data.results)
-    //             if (res.data === undefined) {
-    //                 setGames({ results: [] });
-    //             } else {
-    //                 setGames({ results: res.data.results })
-    //             }
-    //         })
-    //         .catch(err => console.log(err));
-    // };
 
     function handleSearchSubmit(event) {
         event.preventDefault();
         console.log(userSearch)
          axios.get(
-          "https://api.rawg.io/api/games?key=" + process.env.REACT_APP_APIKEY  + "&search=" + userSearch 
+          "https://api.rawg.io/api/games?key=" + process.env.REACT_APP_APIKEY  + "&search=" + userSearch + "&limit=1"
         ).then(res => {
                     console.log(res.data.results)
                       if (res.data === undefined) {
                           setGames({ results: [] });
+                          console.log(setGames)
                       } else {
                           setGames({ results: res.data.results })
+                          console.log(setGames)
                       }
                   })
                   .catch(err => console.log(err));
@@ -61,9 +49,8 @@ function Landing() {
       <Navbar />
       <VideoBg />
 
-    <SearchBar inputChange={handleInputChange} handler={handleSearchSubmit}/>
-      <Wrapper>
-      {games.results.length ?
+      <SearchCard inputChange={handleInputChange} handler={handleSearchSubmit}/>      <Wrapper>
+      {games.results ?
         <List>
       {games.results.map(result => (
     <Results
@@ -75,7 +62,7 @@ function Landing() {
 />
     ))}
     </List> :
-    (<h1>Got nothing buddy</h1>)
+    (<h1></h1>)
       }
     </Wrapper>
     </div>

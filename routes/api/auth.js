@@ -29,6 +29,11 @@ const router = require("express").Router();
     res.redirect("/");
   });
 
+  router.post("/user_data"), function(req,res) {
+    User.findOneAndUpdate(res.data.username, req.body)
+    .then(console.log(req.data))
+  }
+
   // Route for getting some data about our user to be used client side
   router.get("/user_data", function(req, res) {
     if (!req.user) {
@@ -42,7 +47,8 @@ const router = require("express").Router();
       res.json({
         username: req.user.username,
         email: req.user.email,
-        success: true
+        success: true,
+        games: req.user.games
       });
     }
   });
