@@ -19,7 +19,7 @@ const Login = ({ handleChange, setIsAuthenticatedUser }) => {
 
     passport.LogIn(username, password).then(res => {
       if (res.status === 200) {
-        setIsAuthenticatedUser(true)
+      setIsAuthenticatedUser(true)
       }
     })
   }
@@ -33,7 +33,7 @@ const Login = ({ handleChange, setIsAuthenticatedUser }) => {
           <h2>Login</h2>
         </Grid>
 
-        <form onSubmit={login}>
+        <form onSubmit={() => login}>
           <TextField
           label="Username" name="username" placeholder="Enter username" fullWidth required onChange={(e) => setUsername(e.target.value)} value={username} />
           <TextField

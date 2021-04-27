@@ -24,7 +24,9 @@ export default {
   // Saves a game to the database
 
   saveGame: function (id, gameData) {
+
     return axios.put("/api/users" + id, gameData);
+
 
   },
 

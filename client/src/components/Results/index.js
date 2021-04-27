@@ -2,6 +2,7 @@ import React, {useContext} from "react";
 // import Container from "./Container";
 import API from "../../utils/API"
 import authenticatedUserContext from '../../utils/authenticatedUserContext'
+import passport from "../../utils/passport";
 
 
 function Results(props) {
@@ -16,8 +17,12 @@ const {_id} = useContext(authenticatedUserContext)
             image: props.image,
             // link: props.link
         }
-        API.saveGame(_id, data)
+        passport.isAuthenticated()
+        .then(res => {
+            console.log(res.data._id)
+        API.saveGame(res.data._id, data)
             .catch(err => console.log(err));
+          })
     }
 
     // function saveGame(event) {
