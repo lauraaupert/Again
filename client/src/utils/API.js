@@ -18,12 +18,12 @@ export default {
     return axios.get("/api/users/" + id);
   },
   // Deletes the game with the given id
-  deleteGame: function (id) {
-    return axios.delete("/api/users/" + id);
-  },
+  // deleteGame: function (id) {
+  //   return axios.delete("/api/users/" + id, gameData);
+  // },
   // Saves a game to the database
   saveGame: function (id, gameData) {
-    return axios.post("/api/users" + id, gameData);
+    return axios.put("/api/users" + id, gameData);
   },
 
   // Saves a user to the database
