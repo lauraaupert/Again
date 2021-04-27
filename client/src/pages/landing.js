@@ -8,7 +8,7 @@ import { List } from "../components/List"
 import Navbar from "../components/Navbar/index.js";
 import SearchCard from "../components/searchCard";
 import axios from "axios"
-
+import ResultsContainer from "../components/resultsContainer/index"
 
 
 
@@ -64,6 +64,7 @@ function Landing() {
       <VideoBg />
 
     <SearchCard inputChange={handleInputChange} handler={handleSearchSubmit}/>
+    <ResultsContainer>
       <Wrapper>
       {games.results.length ?
         <List>
@@ -80,6 +81,7 @@ function Landing() {
     (<h1>Got nothing buddy</h1>)
       }
     </Wrapper>
+    </ResultsContainer>
     </div>
   );
 }
