@@ -3,12 +3,11 @@ import CssBaseLine from '@material-ui/core/CssBaseline'
 import Typography from '@material-ui/core/Typography'
 import Container from '@material-ui/core/Container'
 import { List } from '@material-ui/core/'
-import { FixedSizeList } from 'react-window';
 
 export function ListA({ children }) {
   return (
-    <List className="list-overflow-container" className={"classes.root"}>
-          <React.Fragment>
+    <List  className={"classes.root"}>
+          {/* <React.Fragment> */}
         <CssBaseLine>
         <Container fixed maxWidth={'sm'}>
         <Typography component="div" style={{ backgroundColor: 'rgb(245 245 245 / 44%)', height: '75vh'}}>
@@ -18,7 +17,7 @@ export function ListA({ children }) {
         
         </Container>
         </CssBaseLine>
-        </React.Fragment>
+        {/* </React.Fragment> */}
 
 
     </List>

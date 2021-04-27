@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import Navbar from "../components/Navbar/";
 import VideoBg from "../components/VideoBg";
 import Wrapper from "../components/Wrapper";
@@ -88,7 +88,7 @@ function WishlistPage() {
 />
     ))}
     </ListA> :
-    (<h1></h1>)
+    (<h1> </h1>)
       }
     </Wrapper>
 
@@ -108,7 +108,7 @@ function WishlistPage() {
 />
     ))}
     </ListA> :
-    (<h1></h1>)
+    (<h1> </h1>)
       }
     </Wrapper>
 

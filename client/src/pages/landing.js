@@ -1,6 +1,4 @@
-import React, { useEffect, useState } from "react";
-import SearchBar from "../components/searchbar";
-import API from "../utils/API";
+import React, { useState } from "react";
 import Results from "../components/Results";
 import Wrapper from "../components/Wrapper"
 import VideoBg from "../components/VideoBg/index"
@@ -71,7 +69,7 @@ function Landing() {
 />
     ))}
     </ListA> :
-    (<h1></h1>)
+    (<h1> </h1>)
       }
     </Wrapper>
     </div>
