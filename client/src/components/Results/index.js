@@ -1,10 +1,11 @@
-import React from "react";
+import React, {useContext} from "react";
 // import Container from "./Container";
-import passport from "../../utils/passport";
-import axios from "axios"
+import API from "../../utils/API"
+import authenticatedUserContext from '../../utils/authenticatedUserContext'
 
 
 function Results(props) {
+const {_id} = useContext(authenticatedUserContext)
     function saveGame(event) {
         event.preventDefault();
         alert("Saved " + props.title + "!")
@@ -15,7 +16,7 @@ function Results(props) {
             image: props.image,
             // link: props.link
         }
-        passport.saveGame(data)
+        API.saveGame(_id, data)
             .catch(err => console.log(err));
     }
 

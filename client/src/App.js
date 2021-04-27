@@ -5,6 +5,7 @@ import Landing from "./pages/landing"
 import { BrowserRouter as Router, Route, Switch, Redirect } from "react-router-dom";import LoginPage from "./pages/loginPage";
 import passport from "./utils/passport";
 import WishlistPage from "./pages/wishlist"
+import authenticatedUserContext from "./utils/authenticatedUserContext";
 
 
 // axios.defaults.withCredentials = true;
@@ -31,8 +32,7 @@ function App() {
   return (
     
     <Router>
-
-
+<authenticatedUserContext.Provider value={authenticatedUser}>
       {/* <VideoBg /> */}
         <Switch>
         {isAuthenticatedUser ?
@@ -63,6 +63,8 @@ function App() {
 </Route>
 
 </Switch>
+</authenticatedUserContext.Provider>
+
     </Router>
   );
 }
