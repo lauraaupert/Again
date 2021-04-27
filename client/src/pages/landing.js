@@ -7,6 +7,7 @@ import VideoBg from "../components/VideoBg/index"
 
 import { List } from "../components/List"
 import Navbar from "../components/Navbar/index.js";
+import axios from "axios"
 
 
 
@@ -16,7 +17,7 @@ function Landing() {
   const [games, setGames] = useState({ results: [] });
   const [userSearch, setUserSearch] = useState("");
 
-    // useEffect(() => searchGames(), []);
+    // useEffect(() => searchGames(userSearch), []);
 
     function handleInputChange(event) {
         const { value } = event.target;
@@ -24,26 +25,37 @@ function Landing() {
         setUserSearch(value);
     };
 
-    function searchGames(query) {
-      console.log(query)
-        API.searchTerms(query)
+    // function searchGames(userSearch) {
+    //   console.log(userSearch)
+    //     API.searchTerms(userSearch)
         
-            .then(res => {
-              console.log(res.data.results)
-                if (res.data === undefined) {
-                    setGames({ results: [] });
-                } else {
-                    setGames({ results: res.data.results })
-                }
-            })
-            .catch(err => console.log(err));
-    };
+    //         .then(res => {
+    //           console.log(res.data.results)
+    //             if (res.data === undefined) {
+    //                 setGames({ results: [] });
+    //             } else {
+    //                 setGames({ results: res.data.results })
+    //             }
+    //         })
+    //         .catch(err => console.log(err));
+    // };
 
     function handleSearchSubmit(event) {
         event.preventDefault();
         console.log(userSearch)
-        searchGames(userSearch);
-    };
+         axios.get(
+          "https://api.rawg.io/api/games?key=" + process.env.REACT_APP_APIKEY  + "&search=" + userSearch 
+        ).then(res => {
+                    console.log(res.data.results)
+                      if (res.data === undefined) {
+                          setGames({ results: [] });
+                      } else {
+                          setGames({ results: res.data.results })
+                      }
+                  })
+                  .catch(err => console.log(err));
+          };
+        
   return (
     <div>
       <Navbar />
