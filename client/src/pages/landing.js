@@ -4,10 +4,11 @@ import API from "../utils/API";
 import Results from "../components/Results";
 import Wrapper from "../components/Wrapper"
 import VideoBg from "../components/VideoBg/index"
-
 import { List } from "../components/List"
 import Navbar from "../components/Navbar/index.js";
+import SearchCard from "../components/searchCard";
 import axios from "axios"
+
 
 
 
@@ -43,6 +44,7 @@ function Landing() {
     function handleSearchSubmit(event) {
         event.preventDefault();
         console.log(userSearch)
+
          axios.get(
           "https://api.rawg.io/api/games?key=" + process.env.REACT_APP_APIKEY  + "&search=" + userSearch 
         ).then(res => {
@@ -61,7 +63,7 @@ function Landing() {
       <Navbar />
       <VideoBg />
 
-    <SearchBar inputChange={handleInputChange} handler={handleSearchSubmit}/>
+    <SearchCard inputChange={handleInputChange} handler={handleSearchSubmit}/>
       <Wrapper>
       {games.results.length ?
         <List>
@@ -81,5 +83,6 @@ function Landing() {
     </div>
   );
 }
+
 
 export default Landing;
