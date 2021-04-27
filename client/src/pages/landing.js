@@ -4,7 +4,9 @@ import API from "../utils/API";
 import Results from "../components/Results";
 import Wrapper from "../components/Wrapper"
 import VideoBg from "../components/VideoBg/index"
-import { List } from "../components/List"
+
+import { ListA } from "../components/List"
+
 import Navbar from "../components/Navbar/index.js";
 import SearchCard from "../components/searchCard";
 import axios from "axios"
@@ -52,11 +54,13 @@ function Landing() {
       <VideoBg />
 
 
+
     <SearchCard inputChange={handleInputChange} handler={handleSearchSubmit}/>
       <Wrapper>
       {games.results.length ?
 
-        <List>
+        <ListA>
+
       {games.results.map(result => (
     <Results
     key={result.id}
@@ -66,7 +70,7 @@ function Landing() {
     image={result.background_image}
 />
     ))}
-    </List> :
+    </ListA> :
     (<h1></h1>)
       }
     </Wrapper>

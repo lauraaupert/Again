@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import Navbar from "../components/Navbar/";
 import VideoBg from "../components/VideoBg";
 import Wrapper from "../components/Wrapper";
-import { List } from "../components/List"
+import { ListA } from "../components/List"
 import Results from "../components/Results";
 import passport from "../utils/passport"
 import axios from "axios"
@@ -77,7 +77,7 @@ function WishlistPage() {
       <Wrapper>
         <h1>Hello!</h1>
       {games.results ?
-        <List>
+        <ListA>
       {games.results.map(result => (
     <Results
     key={result.id}
@@ -87,7 +87,7 @@ function WishlistPage() {
     image={result.background_image}
 />
     ))}
-    </List> :
+    </ListA> :
     (<h1></h1>)
       }
     </Wrapper>
@@ -97,7 +97,7 @@ function WishlistPage() {
 
       <Wrapper>
       {games.results ?
-        <List>
+        <ListA>
       {games.results.map(result => (
     <Results
     key={result.id}
@@ -107,7 +107,7 @@ function WishlistPage() {
     image={result.background_image}
 />
     ))}
-    </List> :
+    </ListA> :
     (<h1></h1>)
       }
     </Wrapper>

@@ -58,9 +58,9 @@ const {_id} = useContext(authenticatedUserContext)
     }
 
     return (
-        <tr>
+        <tr style={{"text-align":"center", "font-family":"Courier New", "font-weight":"bold"}}>
         {/* <div className="row" style={{marginTop: "5px"}} > */}
-            <td>
+            <td >
                 <img 
                 style={{width: "100px"}}
                 alt={`${props.photo}`} 
@@ -70,8 +70,8 @@ const {_id} = useContext(authenticatedUserContext)
             </td>
             {/* <div className="col-md"><img alt={`${props.fullName}`} src={props.photo} /></div> */}
             <td>{props.title}</td>
-            <td>{props.platform}</td>
-            <td>{props.store}</td>
+            {/* <td>{props.platform}</td> */}
+            {/* <td>{props.store}</td> */}
             <td><button className="btn btn-info m-1" onClick={saveGame} type="button">Save</button></td>
 
 
