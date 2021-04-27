@@ -2,24 +2,25 @@ import React from "react";
 import CssBaseLine from '@material-ui/core/CssBaseline'
 import Typography from '@material-ui/core/Typography'
 import Container from '@material-ui/core/Container'
+import { List } from '@material-ui/core/'
 
-export function List({ children }) {
+export function ListA({ children }) {
   return (
-    <div className="list-overflow-container">
-          <React.Fragment>
+    <List  className={"classes.root"}>
+          {/* <React.Fragment> */}
         <CssBaseLine>
-        <Container fixed>
+        <Container fixed maxWidth={'sm'}>
         <Typography component="div" style={{ backgroundColor: 'rgb(245 245 245 / 44%)', height: '75vh'}}>
 
-      <ul className="list-group">{children}</ul>
+      <ul className={"classes.ul"}>{children}</ul>
       </Typography>
         
         </Container>
         </CssBaseLine>
-        </React.Fragment>
+        {/* </React.Fragment> */}
 
 
-    </div>
+    </List>
   );
 }
 
