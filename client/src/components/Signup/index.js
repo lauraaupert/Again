@@ -43,7 +43,7 @@ const Signup = ({ setIsAuthenticatedUser}) => {
           </FormControl>
           <TextField
             onChange={e => setPassword(e.target.value)} value={password} fullWidth label="Password" placeholder="Create Your Password" />          <TextField fullWidth label="Confirm Password" placeholder="Confirm Your Password" />
-          <FormControlLabel
+          {/* <FormControlLabel
             control={
               <Checkbox
                 name="checkedA"
@@ -51,7 +51,7 @@ const Signup = ({ setIsAuthenticatedUser}) => {
               />
             }
             label="I accept terms and conditions"
-          />
+          /> */}
           <Button onClick={signup} type="submit" style={btnStyle} varient="contained" >
             Sign up
           </Button>
