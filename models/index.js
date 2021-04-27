@@ -1,4 +1,4 @@
 module.exports = {
     // Game: require("./game"),
-    User: require("./User"),
+    User: require("./user"),
   };
