@@ -20,7 +20,7 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 // Define API routes here
-app.use(routes);
+
 
 // Serve up static assets (usually on heroku)
 if (process.env.NODE_ENV === "production") {
@@ -29,7 +29,10 @@ if (process.env.NODE_ENV === "production") {
 
 // Connect to the Mongo DB
 mongoose.connect(
-  process.env.MONGODB_URI || "mongodb://localhost/gamedex",
+  // process.env.MONGODB_URI || 
+  // "mongodb://localhost/gamedex",
+  "mongodb+srv://laura-aupert:AtlasHero@cluster0.zwltc.mongodb.net/gamedex?retryWrites=true&w=majority",
+
   {
     useNewUrlParser: true,
     useUnifiedTopology: true,
@@ -38,6 +41,8 @@ mongoose.connect(
   },
   () => console.log("DB connected!")
 );
+
+app.use(routes);
 
 
 // Send every other request to the React app

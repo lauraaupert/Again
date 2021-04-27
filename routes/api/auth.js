@@ -45,6 +45,7 @@ const router = require("express").Router();
       // Otherwise send back the user's email and id
       // Sending back a password, even a hashed password, isn't a good idea
       res.json({
+        _id: req.user._id,
         username: req.user.username,
         email: req.user.email,
         success: true,
