@@ -3,7 +3,7 @@ const path = require("path");
 const PORT = process.env.PORT || 3001;
 const app = express();
 const mongoose = require("mongoose");
-const session = require("cookie-session")
+const session = require("express-session")
 const passport = require("passport");
 const routes = require("./routes")
 
@@ -38,7 +38,8 @@ mongoose.connect(
   },
   () => console.log("DB connected!")
 );
-
+// Define API routes here
+app.use(routes);
 
 // Send every other request to the React app
 // Define any API routes before this runs
